@@ -56,10 +56,6 @@ module.exports = {
 
       if (finalGrade !== null) {
         await assessment.update({ finalGrade });
-
-        if (finalGrade < 4 || isAbsent) {
-          await student.update({ isDebtor: true }); // студент становится должником
-        }
       }
       await StudentService.updateAverageGradeIfComplete(studentId);
 

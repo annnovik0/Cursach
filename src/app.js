@@ -4,6 +4,7 @@ const studentRoutes = require("./routes/studentRoutes");
 const teacherRoutes = require("./routes/teacherRoutes");
 const disciplineRoutes = require("./routes/disciplineRoutes");
 const assessmentRoutes = require("./routes/assessmentRoutes");
+const groupRoutes = require("./routes/groupRoutes");
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use("/api/students", studentRoutes);
 app.use("/api/teachers", teacherRoutes);
 app.use("/api/disciplines", disciplineRoutes);
 app.use("/api/assessments", assessmentRoutes);
+app.use("/api/groups", groupRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

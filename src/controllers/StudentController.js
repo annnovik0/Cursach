@@ -28,6 +28,21 @@ class StudentController {
     if (!deleted) return res.status(404).json({ message: "Student not found" });
     res.json({ message: "Student deleted" });
   }
+
+  static async getDebtors(req, res) {
+    const debtors = await StudentService.getDebtors();
+    res.json(debtors);
+  }
+
+  static async getWithScholarship(req, res) {
+    const students = await StudentService.getWithScholarship();
+    res.json(students);
+  }
+
+  static async getGroupStats(req, res) {
+    const stats = await StudentService.getGroupStats();
+    res.json(stats);
+  }
 }
 
 module.exports = StudentController;
