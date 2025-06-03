@@ -1,4 +1,5 @@
 const { Assessment, Student, Discipline } = require("../../models");
+const StudentService = require("../services/StudentService");
 
 const calculateFinalGrade = async (studentId, disciplineId) => {
   const discipline = await Discipline.findByPk(disciplineId);
@@ -60,6 +61,7 @@ module.exports = {
           await student.update({ isDebtor: true }); // студент становится должником
         }
       }
+      await StudentService.updateAverageGradeIfComplete(studentId);
 
       return res.json(assessment);
     } catch (error) {
